@@ -15,5 +15,19 @@ if($dbconn){
 }
 
 ?>
+
+<?php 
+$result = pg_query($dbconn, "SELECT * FROM proveedor");
+if (!$result) {
+    echo "Something went wrong.";
+    exit;
+}
+
+$arr = pg_fetch_all($result);
+
+echo "<pre>";
+print_r($arr);
+echo "</pre>";
+?>
  
  
