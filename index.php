@@ -67,7 +67,7 @@ if($dbconn){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
 					$no = 1;
-					while($row = pg_fetch_assoc($sql)){
+					while($row = pg_fetch_assoc($result)){
 						echo '
 						<tr>
 							<td>'.$no.'</td>
