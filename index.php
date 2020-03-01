@@ -39,7 +39,7 @@ include("conexion.php");
 					//$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 	                           
 					$date = date('Y-m-d H:i:s');
-					$date=null;
+					//$date=null;
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
 		   			VALUES(null,$date,null)") or die("Fallo en insertar");
