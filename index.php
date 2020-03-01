@@ -36,7 +36,7 @@ include("conexion.php");
                         <?php
 			if(isset($_GET['aksi1']) == 'insert'){
 				date_default_timezone_set('America/Lima');
-				$nik =pg_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+				$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 				$date = date('Y-m-d H:i:s');
 				$horasalida = null;
 				$insert = pg_query($dbconn, "INSERT INTO asistencia(codigo, horaingreso, horasalida)
