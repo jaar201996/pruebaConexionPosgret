@@ -34,20 +34,21 @@ include("conexion.php");
 			<h2>Lista de empleados</h2>
 			<hr />
                         <?php
-			if(isset($_GET['aksi1']) == 'insert'){
-				date_default_timezone_set('America/Lima');
-				$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				$date = date('Y-m-d H:i:s');
-				$horasalida = null;
-				$insert = pg_query($dbconn, "INSERT INTO asistencia(codigo, horaingreso, horasalida)
-															VALUES('$nik','$date', '$horasalida')") or die("Fallo en insertar");
-				if($insert){
-							echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su ingreso.</div>';
-							    
-				}else{
-							echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
+				if(isset($_GET['aksi1']) == 'insert'){
+					date_default_timezone_set('America/Lima');
+					//$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
+					$nik=null;
+					$date = date('Y-m-d H:i:s');
+					$horasalida = null;
+					$insert = pg_query($dbconn, "INSERT INTO asistencia(codigo, horaingreso, horasalida)
+																VALUES('$nik','$date', '$horasalida')") or die("Fallo en insertar");
+					if($insert){
+								echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su ingreso.</div>';
+
+					}else{
+								echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error. No se pudo guardar los datos !</div>';
+					}
 				}
-			}
 			?>
 
 			<br />
