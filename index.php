@@ -44,7 +44,7 @@ include("conexion.php");
                                         $time_posted = date("Y-m-d H:i:s", $final);
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
-		   			VALUES(null,$time_posted,null)") or die("Fallo en insertar");
+		   			VALUES(null,'$time_posted',null)") or die("Fallo en insertar");
 					if($insert){
 								echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su ingreso.</div>';
 
