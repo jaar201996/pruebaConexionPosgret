@@ -53,8 +53,8 @@ include("conexion.php");
 			<?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			if(isset($_GET['aksi']) == 'update'){
-			$nik = pg_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = pg_query($con, "SELECT * FROM asistencia WHERE codigo='$nik' and horasalida is null");
+			$nik = pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$sql = pg_query($dbconn, "SELECT * FROM asistencia WHERE codigo='$nik' and horasalida is null");
 			if(pg_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -64,7 +64,7 @@ include("conexion.php");
 			    date_default_timezone_set('America/Lima');
 				$horasalida	 =date('Y-m-d H:i:s');
 				
-				$update = pg_query($con, "UPDATE asistencia SET horasalida='$horasalida' WHERE codigo='$nik'") or die('Error en la actualizacion');
+				$update = pg_query($dbconn, "UPDATE asistencia SET horasalida='$horasalida' WHERE codigo='$nik'") or die('Error en la actualizacion');
 				if($update){
 						echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su salida.</div>';
 				}else{
