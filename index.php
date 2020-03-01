@@ -39,9 +39,12 @@ include("conexion.php");
 					//$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 					//$date = date('Y-m-d H:i:s');
 					//$date=null;
+					$date = date("m/d/Y h:i A");
+                                        $final = strtotime($date);
+                                        $time_posted = date("m/d/Y h:i A", $final);
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
-		   			VALUES(null,date('Y-m-d H:i:s'),null)") or die("Fallo en insertar");
+		   			VALUES(null,$time_posted,null)") or die("Fallo en insertar");
 					if($insert){
 								echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su ingreso.</div>';
 
