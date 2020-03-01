@@ -38,7 +38,8 @@ include("conexion.php");
 					date_default_timezone_set('America/Lima');
 					//$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 	                                $nik='JK';
-					$date = date('Y-m-d H:i:s');
+					//$date = date('Y-m-d H:i:s');
+					$date=null;
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
 																VALUES('$nik','$date', '$horasalida')") or die("Fallo en insertar");
