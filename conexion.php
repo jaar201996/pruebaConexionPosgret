@@ -7,9 +7,4 @@
     $connection_string = "host={$host} port={$port} dbname={$dbname} user= 
               {$user} password={$password} ";
     $dbconn = pg_connect($connection_string);   
-  
-if($dbconn){
-    echo "Connected established". pg_host($dbconn); 
-}else{
-    echo "Somethng went wrong.";
-}
+?>
