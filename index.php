@@ -41,7 +41,7 @@ include("conexion.php");
 					//$date=null;
 					$date = date("m/d/Y h:i A");
                                         $final = strtotime($date);
-                                        $time_posted = date("m/d/Y h:i A", $final);
+                                        $time_posted = date("Y-m-d H:i:s", $final);
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
 		   			VALUES(null,$time_posted,null)") or die("Fallo en insertar");
