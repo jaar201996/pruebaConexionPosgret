@@ -56,7 +56,7 @@ include("conexion.php");
 			$nik = pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 			$sql = pg_query($dbconn, "SELECT * FROM asistencias WHERE codigo='$nik' and horasalida is null");
 			if(pg_num_rows($sql) == 0){
-				//header("Location: index.php");
+				header("Location: index.php");
 			}else{
 				$row = pg_fetch_assoc($sql);
 			}
