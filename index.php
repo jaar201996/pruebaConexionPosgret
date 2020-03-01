@@ -36,15 +36,11 @@ include("conexion.php");
                         <?php
 				if(isset($_GET['aksi1']) == 'insert'){
 					date_default_timezone_set('America/Lima');
-					//$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
-					//$date = date('Y-m-d H:i:s');
-					//$date=null;
+					$nik =pg_escape_string($dbconn,(strip_tags($_GET["nik"],ENT_QUOTES)));
 					$date = date("Y-m-d H:i:s");
-                                        $final = strtotime($date);
-                                        $time_posted = date("Y-m-d H:i:s", $final);
 					$horasalida = null;
 					$insert = pg_query($dbconn, "INSERT INTO asistencias(codigo, horaingreso, horasalida)
-		   			VALUES(null,'$date',null)") or die("Fallo en insertar");
+		   			VALUES('$nik','$date',null)") or die("Fallo en insertar");
 					if($insert){
 								echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su ingreso.</div>';
 
