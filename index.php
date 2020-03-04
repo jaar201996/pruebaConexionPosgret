@@ -64,7 +64,7 @@ include("conexion.php");
 			        date_default_timezone_set('America/Lima');
 				$horasalida =date("Y-m-d H:i:s");
 				
-				$update = pg_query($dbconn, "UPDATE asistencias SET horasalida='$horasalida' WHERE codigo='$nik'") or die("Error en la actualizacion");
+				$update = pg_query($dbconn, "UPDATE asistencias SET horasalida='$horasalida' WHERE codigo='$nik' and horasalida is null") or die("Error en la actualizacion");
 				if($update){
 						echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Ya registro su salida.</div>';
 				}else{
